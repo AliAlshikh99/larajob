@@ -28,12 +28,12 @@ Route::get('/dashboard/create-job', function () {
     return view('create-job');
 })->middleware(['auth', 'verified'])->name('dashboard.create-job');
 Route::get('/dashboard/jobs', function () {
-    $jobs=Job::all();
+    $jobs=Job::where('user_id',auth()->id())->get();
     return view('Jobs-table')->with('jobs',$jobs);
 })->middleware(['auth', 'verified'])->name('dashboard.jobs');
 
-Route::resource('/jobs', JobController::class)->except('index');
 Route::middleware('auth')->group(function () {
+    Route::resource('/jobs', JobController::class)->except('index');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
