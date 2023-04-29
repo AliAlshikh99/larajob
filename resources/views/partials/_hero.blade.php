@@ -9,7 +9,7 @@
               Lara<span class="text-black">Job</span>
           </h1>
           <p class="text-2xl text-black-200 font-bold my-4">
-              Find jobs With US...
+              Find jobs in Web Development
           </p>
 
       </div>
