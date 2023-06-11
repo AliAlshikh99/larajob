@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <h1 class="text-2xl p-1  text-zinc-50 ">LaraJob</h1>
                     </a>
                 </div>
 
@@ -24,6 +24,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard.jobs')" :active="request()->routeIs('dashboard.jobs')">
                         {{ __('Jobs') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('dashboard.cvs')" :active="request()->routeIs('dashboard.cvs')">
+                        {{ __('CVs') }}
                     </x-nav-link>
                 </div>
             </div>

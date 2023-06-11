@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Job;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,7 +16,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Job::factory(100)->create();
+        $users=[
+            [
+            'name'=>'Ali',
+            'email'=>'Ali@test.test ',
+            'password'=>Hash::make('123456'),
+            ],
+            [
+            'name'=>'sami',
+            'email'=>'sami@test.test ',
+            'password'=>Hash::make('123456'),
+            ],
+            
+            ];
+         
+    foreach ($users as  $user) {
+        User::create($user);
+    }
+
+        // \App\Models\Job::factory(100)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

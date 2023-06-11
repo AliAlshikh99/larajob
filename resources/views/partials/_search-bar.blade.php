@@ -1,6 +1,6 @@
 <form action="/" class="flex justify-center items-center">
     <div class="relative border-5 w-1/2  m-4 rounded-lg">
-        <div class="absolute top-4 left-3">
+        <div class="absolute top-5 left-3">
             <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
         </div>
         <input type="text" name="search"

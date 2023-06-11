@@ -1,17 +1,18 @@
 @props(['job'])
-<div class=" bg-slate-200 scale-90 hover:scale-100 rounded p-12 shadow-md">
+<div class=" bg-slate-200 scale-90 hover:scale-100   rounded p-12 shadow-md relative group">
     <div class="flex">
         <a href="/jobs/{{ $job->id }}">
 
             <img class=" w-48 mr-6 md:block"
                 src="{{ $job->logo ? asset('storage/' . $job->logo) : asset('images/no-image.png') }}" alt="" />
         </a>
+       
         <div>
-            <h3 class="text-2xl ">
-                <a href="/jobs/{{ $job->id }}">{{ $job->title }}</a>
+            <h3 class="text-2xl font-bold ">
+               {{ $job->title }} 
 
             </h3>
-            <div class="text-xl font-bold mb-4">
+            <div class="text-xl  mb-4">
 
                 <a href="{{ $job->website }}">{{ $job->company }}</a>
             </div>
@@ -54,4 +55,11 @@
 
         </div>
     </div>
+    <a href="/jobs/{{ $job->id }}">
+        <button
+            class="absolute bottom-5 right-5 bg-blue-700 text-white px-3 py-2 rounded-full opacity-0 transition duration-300 translate-y-20 group-hover:translate-y-0 group-hover:opacity-100 font-bold">Apply
+            Now</button>
+
+
+    </a>
 </div>

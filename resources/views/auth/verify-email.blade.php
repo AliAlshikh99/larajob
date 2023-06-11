@@ -10,22 +10,37 @@
     @endif
 
     <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verification.send') }}">
+        <form method="POST" action="{{ route('check') }}">
             @csrf
+            <div>
+            <x-input-label for="email" :value="__('email')" />
+            <x-text-input id="code" class="block mt-1 w-full" type="email" name="email"  required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+            <div>
+            <x-input-label for="code" :value="__('code')" />
+            <x-text-input id="code" class="block mt-1 w-full" type="text" name="code"  required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('code')" class="mt-2" />
+        </div>
 
             <div>
                 <x-primary-button>
-                    {{ __('Resend Verification Email') }}
+                    {{ __('send') }}
                 </x-primary-button>
             </div>
+            {{-- <div>
+                <x-primary-button>
+                    {{ __('Resend Verification Email') }}
+                </x-primary-button>
+            </div> --}}
         </form>
 
-        <form method="POST" action="{{ route('logout') }}">
+        {{-- <form method="POST" action="{{ route('logout') }}">
             @csrf
 
             <button type="submit" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                 {{ __('Log Out') }}
             </button>
-        </form>
+        </form> --}}
     </div>
 </x-guest-layout>

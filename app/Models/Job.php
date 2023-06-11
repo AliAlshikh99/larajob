@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Job extends Model
 {
@@ -12,12 +12,10 @@ class Job extends Model
     // use SoftDeletes;
     protected $guarded=[''];
     use SoftDeletes;
+    
 
 
-    public function users()
-    {
-        return $this->belongsTo(User::class);
-    }
+   
 
     public function scopeFilter($query,array $filters)
     {
@@ -30,6 +28,16 @@ class Job extends Model
             ->orWhere('company','like','%' . request('search') . '%');
         }
     }
+    public function cvs()
+    {
+        return $this->hasMany(cv::class);
+    }
+     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    
 
 
 }
