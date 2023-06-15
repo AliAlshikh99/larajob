@@ -2,7 +2,7 @@
 @section('content')
     @include('partials._hero')
 
-    <div class="lg:grid lg:grid-cols-2  gap-4 space-y-4 md:space-y-0 mx-4">
+    <div class="lg:grid lg:grid-cols-2   gap-4 space-y-4 md:space-y-0 mx-4">
         @if (count($jobs) == 0)
             <p class="text-5xl m-5 text-center text-neutral-950">Jobs Not Found....</p>
             <a href="/" class="flex justify-end items-end">
@@ -14,7 +14,7 @@
         @endif
 
     </div>
-      <div class="mt-8 p-4 flex space-x-4 space-y-4 ">
+      <div class="m-8 p-4   ">
             {{ $jobs->links() }}
         </div>
     
